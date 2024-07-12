@@ -38,6 +38,23 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+   <div id="npc-selection">
+        <h1>Select NPC</h1>
+        <select id="npc-select">
+            <option value="slime">Slime</option>
+            <option value="budi">Budi</option>
+            <option value="cornelia">Cornelia</option>
+            <option value="edgar">Edgar</option>
+            <option value="midi">Midi</option>
+            <option value="scissor-lady">Scissor Lady</option>
+            <option value="paper-guy">Paper Guy</option>
+            <option value="bob-rock">Bob Rock</option>
+        </select>
+        <button onclick="startGame()">Start Game</button>
+    </div>
+
+<div id="game" style="display: none;">
     <h1>Tic Tac Toe & Rock Paper Scissors</h1>
     <div class="rock-paper-scissors">
         <h2>Rock Paper Scissors</h2>
@@ -55,20 +72,8 @@
         <div class="board" id="tic-tac-toe-board"></div>
         <button onclick="resetGame()">Reset</button>
     </div>
+</div>
 
-    <div>
-        <h2>Select NPC</h2>
-        <select id="npc-select">
-            <option value="slime">Slime</option>
-            <option value="budi">Budi</option>
-            <option value="cornelia">Cornelia</option>
-            <option value="edgar">Edgar</option>
-            <option value="midi">Midi</option>
-            <option value="scissor-lady">Scissor Lady</option>
-            <option value="paper-guy">Paper Guy</option>
-            <option value="bob-rock">Bob Rock</option>
-        </select>
-    </div>
 
     <script src="script.js"></script>
 </body>

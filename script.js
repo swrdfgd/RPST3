@@ -1,5 +1,12 @@
 // script.js
 
+function startGame() {
+    const npcSelect = document.getElementById('npc-select');
+    selectedNpc = npcSelect.value;
+    document.getElementById('npc-selection').style.display = 'none';
+    document.getElementById('game').style.display = 'block';
+}
+
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -131,8 +138,8 @@ function npcMove() {
         playerChoice(getNpcChoice());
         const strategy = npcs[selectedNpc].strategy;
         for (let i = 0; i < strategy.length; i++) {
+			console.log(strategy[i])
             if (executeNpcStrategy(strategy[i])) {
-				console.log(strategy[i])
                 break;
             }
         }
@@ -151,7 +158,7 @@ function executeNpcStrategy(strategy) {
             if (executeCounterStrategy()) return true;
             break;
         case 'beat':
-            availableMoves = ticTacToeCells.filter(cell => canOverwrite(cell.textContent,cell.classList));
+            availableMoves = [0,1,2,3,4,5,6,7,8].filter(index => canOverwrite(ticTacToeCells[index].textContent,ticTacToeCells[index].classList));
             break;
         case 'corner':
             availableMoves = [0, 2, 6, 8].filter(index => ticTacToeCells[index].textContent === '');
@@ -166,13 +173,13 @@ function executeNpcStrategy(strategy) {
             }
             break;
         case 'random':
-            availableMoves = ticTacToeCells.filter(cell => cell.textContent === '');
+            availableMoves = [0,1,2,3,4,5,6,7,8].filter(index => ticTacToeCells[index].textContent === '');
             break;
     }
 	console.log(availableMoves);
     if (availableMoves.length > 0) {
         const randomMove = availableMoves[Math.floor(Math.random() * availableMoves.length)];
-        makeMove(ticTacToeCells.indexOf(randomMove));
+        makeMove(randomMove);
         return true;
     }
     return false;
