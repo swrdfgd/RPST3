@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe & Rock Paper Scissors</title>
+    <style>
+        .tic-tac-toe, .rock-paper-scissors {
+            margin: 20px;
+        }
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-gap: 5px;
+        }
+        .cell {
+            width: 100px;
+            height: 100px;
+            background: #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+            cursor: pointer;
+        }
+        .cell.red {
+            background: lightcoral;
+        }
+        .cell.blue {
+            background: lightblue;
+        }
+        .choices button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 1em;
+        }
+    </style>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Tic Tac Toe & Rock Paper Scissors</h1>
+    <div class="rock-paper-scissors">
+        <h2>Rock Paper Scissors</h2>
+        <div class="choices">
+            <button onclick="playerChoice('rock')">Rock</button>
+            <button onclick="playerChoice('paper')">Paper</button>
+            <button onclick="playerChoice('scissors')">Scissors</button>
+        </div>
+        <div id="rps-result"></div>
+		<div id="command-action">Choose Rock, Paper, or Scissors to play.</div>
+    </div>
+
+    <div class="tic-tac-toe">
+        <h2>Tic Tac Toe</h2>
+        <div class="board" id="tic-tac-toe-board"></div>
+        <button onclick="resetGame()">Reset</button>
+    </div>
+
+    <div>
+        <h2>Select NPC</h2>
+        <select id="npc-select">
+            <option value="slime">Slime</option>
+            <option value="budi">Budi</option>
+            <option value="cornelia">Cornelia</option>
+            <option value="edgar">Edgar</option>
+            <option value="midi">Midi</option>
+            <option value="scissor-lady">Scissor Lady</option>
+            <option value="paper-guy">Paper Guy</option>
+            <option value="bob-rock">Bob Rock</option>
+        </select>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

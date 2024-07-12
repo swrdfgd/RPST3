@@ -1,0 +1,75 @@
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+h1, h2 {
+    color: #ffffff;
+}
+
+.tic-tac-toe, .rock-paper-scissors {
+    margin: 20px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 5px;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background: #333333;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    cursor: pointer;
+    border: 1px solid #ffffff;
+}
+
+.cell.red {
+    background: #ff6347; /* Light Coral */
+}
+
+.cell.blue {
+    background: #1e90ff; /* Dodger Blue */
+}
+
+.cell.disabled {
+    cursor: not-allowed;
+}
+
+.choices button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #444444;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    cursor: pointer;
+}
+
+.choices button:hover {
+    background-color: #555555;
+}
+
+#rps-result, #command-action {
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+button:disabled {
+    background-color: #555555;
+    cursor: not-allowed;
+}
+
+select {
+    background-color: #444444;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    padding: 5px;
+}
