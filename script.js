@@ -32,9 +32,9 @@ const npcs = {
     'cornelia': { strategy: ['win', 'counter', 'beat', 'corner', 'random'] },
     'edgar': { strategy: ['win', 'counter', 'beat', 'edge', 'random'] },
     'midi': { strategy: ['win', 'counter', 'beat', 'center', 'random'] },
-    'scissor-lady': { strategy: ['win', 'counter', 'beat', 'random'], rpsProb: [0.5, 0.25, 0.25] },
-    'paper-guy': { strategy: ['win', 'counter', 'beat', 'random'], rpsProb: [0.25, 0.5, 0.25] },
-    'bob-rock': { strategy: ['win', 'counter', 'beat', 'random'], rpsProb: [0.25, 0.25, 0.5] },
+    'scissor-lady': { strategy: ['win', 'counter', 'beat', 'cross', 'random'], rpsProb: [0.5, 0.25, 0.25] },
+    'paper-guy': { strategy: ['win', 'counter', 'beat', 'brim', 'random'], rpsProb: [0.25, 0.5, 0.25] },
+    'bob-rock': { strategy: ['win', 'counter', 'beat', 'plus', 'random'], rpsProb: [0.25, 0.25, 0.5] },
 };
 
 let selectedNpc = 'slime';
@@ -165,6 +165,15 @@ function executeNpcStrategy(strategy) {
             break;
         case 'edge':
             availableMoves = [1, 3, 5, 7].filter(index => ticTacToeCells[index].textContent === '');
+            break;
+		case 'plus':
+            availableMoves = [1, 3, 4, 5, 7].filter(index => ticTacToeCells[index].textContent === '');
+            break;
+		case 'brim':
+            availableMoves = [0,1,2,3,5,6,7,8].filter(index => ticTacToeCells[index].textContent === '');
+            break;
+		case 'cross':
+            availableMoves = [0, 2, 4, 6, 8].filter(index => ticTacToeCells[index].textContent === '');
             break;
         case 'center':
             if (ticTacToeCells[4].textContent === '') {
