@@ -41,7 +41,7 @@
 
    <div id="npc-selection">
         <h1>Select NPC</h1>
-        <select id="npc-select">
+        <select id="npc-select" onchange="changeCharImage()">
             <option value="slime">Slime</option>
             <option value="budi">Budi</option>
             <option value="cornelia">Cornelia</option>
@@ -52,6 +52,9 @@
             <option value="bob-rock">Bob Rock</option>
         </select>
         <button onclick="startGame()">Start Game</button>
+		<div>
+		<img id="npcImage1" src="CharPic/slime.png">
+		</div>
     </div>
 
 <div id="game" style="display: none;">
@@ -69,7 +72,15 @@
 
     <div class="tic-tac-toe">
         <h2>Tic Tac Toe</h2>
+		<div class="outboard">
         <div class="board" id="tic-tac-toe-board"></div>
+			<div>
+			<img id="npcImage2" src="CharPic/slime.png" height="100px" widht="100px">
+			<div>
+			<span id="npcName">Slime</span>
+			</div>
+			</div>
+		</div>
         <button onclick="resetGame()">Reset</button>
     </div>
 </div>

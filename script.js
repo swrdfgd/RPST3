@@ -27,21 +27,28 @@ let currentChoice = '';
 let waitingForRps = true;
 
 const npcs = {
-    'slime': { strategy: ['random'] },
-    'budi': { strategy: ['win', 'counter', 'beat', 'random'] },
-    'cornelia': { strategy: ['win', 'counter', 'beat', 'corner', 'random'] },
-    'edgar': { strategy: ['win', 'counter', 'beat', 'edge', 'random'] },
-    'midi': { strategy: ['win', 'counter', 'beat', 'center', 'random'] },
-    'scissor-lady': { strategy: ['win', 'counter', 'beat', 'cross', 'random'], rpsProb: [0.5, 0.25, 0.25] },
-    'paper-guy': { strategy: ['win', 'counter', 'beat', 'brim', 'random'], rpsProb: [0.25, 0.5, 0.25] },
-    'bob-rock': { strategy: ['win', 'counter', 'beat', 'plus', 'random'], rpsProb: [0.25, 0.25, 0.5] },
+    'slime': { strategy: ['random'], image: 'slime.png', nama:'Slime' },
+    'budi': { strategy: ['win', 'counter', 'beat', 'random'], image: 'Budi.png', nama:'Budi' },
+    'cornelia': { strategy: ['win', 'counter', 'beat', 'corner', 'random'], image: 'Cornelia.png', nama:'Cornelia' },
+    'edgar': { strategy: ['win', 'counter', 'beat', 'edge', 'random'], image: 'Edgar.png', nama:'Edgar' },
+    'midi': { strategy: ['win', 'counter', 'beat', 'center', 'random'], image: 'Midi.png', nama:'Midi' },
+    'scissor-lady': { strategy: ['win', 'counter', 'beat', 'cross', 'random'], rpsProb: [0.5, 0.25, 0.25], image: 'ScissorLady.png', nama:'Scissor Lady' },
+    'paper-guy': { strategy: ['win', 'counter', 'beat', 'brim', 'random'], rpsProb: [0.25, 0.5, 0.25], image: 'PaperGuy.png', nama:'Paper Guy' },
+    'bob-rock': { strategy: ['win', 'counter', 'beat', 'plus', 'random'], rpsProb: [0.25, 0.25, 0.5], image: 'BobRock.png', nama:'Bob Rock' },
 };
 
 let selectedNpc = 'slime';
 
 document.getElementById('npc-select').addEventListener('change', (e) => {
     selectedNpc = e.target.value;
+	changeCharImage(selectedNpc);
 });
+
+function changeCharImage(npcName){
+	document.getElementById('npcImage1').src = "CharPic/" + npcs[npcName].image;
+	document.getElementById('npcImage2').src = "CharPic/" + npcs[npcName].image;
+	document.getElementById('npcName').innerHTML = npcs[npcName].nama;
+}
 
 function initTicTacToe() {
     ticTacToeBoard.innerHTML = '';
